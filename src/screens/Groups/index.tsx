@@ -4,7 +4,7 @@ import { Container } from './styles';
 export function Groups() {
   return (
     <Container>
-      <Header/>
+      <Header showBackButton={false} />
     </Container>
   );
 };
