@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FlatList } from 'react-native';
 import { EmptyList } from '@components/EmptyList';
 import { Button } from '@components/Button';
+import { Input } from '@components/Input';
 
 export function NewGroup() {
   const [groups, setGourps] = useState<string[]>([]);
@@ -21,7 +22,11 @@ export function NewGroup() {
           subtitle='Crie uma turma para adicionar pessoas'
         />
 
-        <Button title='Criar' />
+        <Input
+          placeholder='Nome da turma'
+        />
+
+        <Button title='Criar' style={{marginTop: 24}}/>
       </Content>
     </Container>
   );
