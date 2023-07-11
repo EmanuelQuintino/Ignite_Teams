@@ -8,8 +8,7 @@ export const Container = styled.View`
   border-radius: 8px;
   flex-direction: row;
   align-items: center;
-  padding: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const Icon = styled(MaterialIcons).attrs(({ theme }) => ({

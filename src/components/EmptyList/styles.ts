@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Message = styled.Text`
-  margin-top: 50%;
+  margin-top: 45%;
   text-align: center;
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.SM}px;
