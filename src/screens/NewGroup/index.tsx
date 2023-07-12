@@ -7,15 +7,11 @@ import { Input } from '@components/Input';
 import { useNavigation } from "@react-navigation/native";
 
 export function NewGroup() {
-  const [groups, setGourps] = useState<string[]>([]);
+  const [group, setGourp] = useState("");
   const navigation = useNavigation();
 
   function handleNavigatePlayers() {
-    navigation.navigate("players", { group: "Teruma" });
-  };
-
-  function handleNavigateGroup() {
-    navigation.navigate("groups");
+    navigation.navigate("players", { group });
   };
 
   return (
@@ -32,6 +28,7 @@ export function NewGroup() {
 
         <Input
           placeholder='Nome da turma'
+          onChangeText={setGourp}
         />
 
         <Button
