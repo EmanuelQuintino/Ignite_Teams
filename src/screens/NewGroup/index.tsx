@@ -6,7 +6,7 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { useNavigation } from "@react-navigation/native";
 import { groupCreate } from '@storage/group/groupCreate';
-import { AppError } from '@utils/appError';
+import { AppError } from '@utils/AppError';
 import { Alert } from 'react-native';
 
 export function NewGroup() {
