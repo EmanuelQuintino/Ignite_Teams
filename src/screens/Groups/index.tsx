@@ -17,6 +17,10 @@ export function Groups() {
     navigation.navigate("newGroup")
   };
 
+  function handleNavigatePlayers(group: string) {
+    navigation.navigate("players", { group });
+  };
+
   async function fetchGroups() {
     try {
       const dataGroups = await groupGetAll();
@@ -43,7 +47,10 @@ export function Groups() {
         data={groups}
         keyExtractor={item => item}
         renderItem={({ item }) => (
-          <GroupCard title={item} onPress={() => { }} />
+          <GroupCard 
+            title={item} 
+            onPress={() => handleNavigatePlayers(item)} 
+          />
         )}
         ListEmptyComponent={() => (
           <EmptyList message="Que tal cadastrar a primeira turma?" />
