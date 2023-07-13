@@ -5,13 +5,19 @@ import { useState } from 'react';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { useNavigation } from "@react-navigation/native";
+import { groupCreate } from '@storage/group/groupCreate';
 
 export function NewGroup() {
   const [group, setGourp] = useState("");
   const navigation = useNavigation();
 
-  function handleNavigatePlayers() {
-    navigation.navigate("players", { group });
+  async function handleNewGroup() {
+    try {
+      await groupCreate(group);
+      navigation.navigate("players", { group });
+    } catch (error) {
+      console.error(error);
+    };
   };
 
   return (
@@ -34,7 +40,7 @@ export function NewGroup() {
         <Button
           title='Criar'
           style={{ marginTop: 24 }}
-          onPress={handleNavigatePlayers}
+          onPress={handleNewGroup}
         />
       </Content>
     </Container>
