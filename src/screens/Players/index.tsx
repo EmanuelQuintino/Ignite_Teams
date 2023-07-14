@@ -14,6 +14,7 @@ import { AppError } from '@utils/AppError';
 import { playerAddByGroup } from '@storage/players/playerAddByGroup';
 import { playersGetByGroupAndTeam } from '@storage/players/playersGetByGroupAndTeam';
 import { PlayerStorageDTO } from '@storage/players/playerStorageDTO';
+import { playerRemoveByGroup } from '@storage/players/playerRemoveByGroup';
 
 type RouteParams = {
   group: string;
@@ -60,8 +61,18 @@ export function Players() {
       const playersByTeam = await playersGetByGroupAndTeam(group, teamActive);
       setPlayers(playersByTeam);
     } catch (error) {
-        Alert.alert("Jogadores", "Não foi possível carregar jogadores");
-        console.error(error);
+      Alert.alert("Jogadores", "Não foi possível carregar jogadores");
+      console.error(error);
+    };
+  };
+
+  async function handleRemovePlayer(playerName: string) {
+    try {
+      await playerRemoveByGroup(playerName, group);
+      fetchPlayersByTeam();
+    } catch (error) {
+      Alert.alert("Remover Jogador", "Não foi possível remover jogador");
+      console.error(error);
     };
   };
 
@@ -116,7 +127,10 @@ export function Players() {
         data={players}
         keyExtractor={item => item.name}
         renderItem={({ item }) => (
-          <PlayerCard name={item.name} onRemove={() => { }} />
+          <PlayerCard 
+            name={item.name} 
+            onRemove={() => handleRemovePlayer(item.name)} 
+          />
         )}
         ListEmptyComponent={() => (
           <EmptyList
