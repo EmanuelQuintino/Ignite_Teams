@@ -7,9 +7,9 @@
 - `React Native`
 - `TypeScript`
 - `Expo-Font`
-- `React-Navigation`
-- `Phosphor-React-Native`
 - `Styled-Components`
+- `React-Navigation`
+- `Async-Storage`
 
 ## Links
 
